@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">MyMemories</string>
+    <string name="sound_text">BGMを選択してね</string>
+    <string name="set">選択</string>
+    <string name="add_del">追加、削除</string>
+    <string name="image_text">画像</string>
+    <string name="title_text">タイトル</string>
+</resources>
