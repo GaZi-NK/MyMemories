@@ -9,7 +9,6 @@ import androidx.recyclerview.widget.RecyclerView
 
 class RecyclerViewAdapter(list : MutableList<MemoriyData>) : RecyclerView.Adapter<RecyclerViewHolder>() {
     var m_line : Int = 0
-
     //データクラスの配列を用意
     var list : MutableList<MemoriyData> = list
 
@@ -35,8 +34,8 @@ class RecyclerViewAdapter(list : MutableList<MemoriyData>) : RecyclerView.Adapte
     //MemoryData(データクラス)から一行文のデータを取得しViewHolder(RecyclerViewHolder)に表示させる
     override fun onBindViewHolder(holder: RecyclerViewHolder, position: Int) {
         val pos = position
+        holder.title.text = list[position].title
         holder.editbtn.setOnClickListener {
-            holder.title.text = list[position].title
             m_line = pos
             m_listener.onClick(it)
         }

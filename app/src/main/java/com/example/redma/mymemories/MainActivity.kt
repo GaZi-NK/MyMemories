@@ -13,9 +13,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-
         //アダプターのインスタンスを作成
-        var adapter = RecyclerViewAdapter(createDataset())
+        val adapter = RecyclerViewAdapter(createDataset())
         //レイアウトマネージャーのインスタンスを取得
         var lim = LinearLayoutManager(this)
         //ListViewにはない便利な機能の一つでレスポンシブにデータを表示するために使用するLayoutManagerを設定
@@ -25,13 +24,11 @@ class MainActivity : AppCompatActivity() {
         //RecyclerView(MemoriewView)にアダプターをセット
         MemoriesView.adapter = adapter
 
-        adapter.setOnItemClickListener(View.OnClickListener {
-            fun onClick(view : View?) {
-                val line: Int = adapter.getLine() //ここでm_lineの値を取得
-                var intent = Intent(this, EditActivity::class.java);
-                intent.putExtra("line", line);
-                startActivity(intent);
-            }
+        (MemoriesView.adapter as RecyclerViewAdapter).setOnItemClickListener(View.OnClickListener {
+            val line: Int = adapter.getLine() //ここでm_lineの値を取得
+            var intent = Intent(this, EditActivity::class.java);
+            intent.putExtra("line", line);
+            startActivity(intent);
         })
 
     }
