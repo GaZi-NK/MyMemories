@@ -24,14 +24,23 @@ class MainActivity : AppCompatActivity() {
         //RecyclerView(MemoriewView)にアダプターをセット
         MemoriesView.adapter = adapter
 
-        (MemoriesView.adapter as RecyclerViewAdapter).setOnItemClickListener(View.OnClickListener {
+        //edtbtnクリック時の処理
+        (MemoriesView.adapter as RecyclerViewAdapter).editbtnOnItemClickListener(View.OnClickListener {
             val line: Int = adapter.getLine() //ここでm_lineの値を取得
             var intent = Intent(this, EditActivity::class.java);
             intent.putExtra("line", line);
             startActivity(intent);
         })
 
-    }
+        (MemoriesView.adapter as RecyclerViewAdapter).startbtnOnItemClickListener(View.OnClickListener {
+            val line: Int = adapter.getLine() //ここでm_lineの値を取得
+            var intent = Intent(this, SlideActivity::class.java);
+            startActivity(intent);
+            intent.putExtra("line", line);
+        })
+
+        }
+
     private fun createDataset() : MutableList<MemoriyData> {
         var  list : MutableList<MemoriyData> = mutableListOf()
         for (i in 0..50){

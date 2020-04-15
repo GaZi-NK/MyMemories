@@ -1,6 +1,5 @@
 package com.example.redma.mymemories
 
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -25,10 +24,16 @@ class RecyclerViewAdapter(list : MutableList<MemoriyData>) : RecyclerView.Adapte
     }
 
 
-    //リスト内のボタンがクリックされた時の動作
+    //editbtnボタンがクリック時のリスナーの宣言と登録
     lateinit var m_listener : View.OnClickListener
-    fun setOnItemClickListener(listener: View.OnClickListener) {
+    fun editbtnOnItemClickListener(listener: View.OnClickListener) {
         m_listener = listener
+    }
+
+    //starbtnボタンがクリック時のリスナーの宣言と登録
+    lateinit var s_listener : View.OnClickListener
+    fun startbtnOnItemClickListener(listener: View.OnClickListener) {
+        s_listener = listener
     }
 
     //MemoryData(データクラス)から一行文のデータを取得しViewHolder(RecyclerViewHolder)に表示させる
@@ -38,6 +43,10 @@ class RecyclerViewAdapter(list : MutableList<MemoriyData>) : RecyclerView.Adapte
         holder.editbtn.setOnClickListener {
             m_line = pos
             m_listener.onClick(it)
+        }
+        holder.startbtn.setOnClickListener{
+            m_line = pos
+            s_listener.onClick(it)
         }
     }
 

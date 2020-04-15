@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 
 class RecyclerViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView){
     var title : TextView = itemView.findViewById(R.id.title)
-    var starbtn : ImageButton = itemView.findViewById(R.id.startbtn)
+    var startbtn : ImageButton = itemView.findViewById(R.id.startbtn)
     var editbtn : ImageButton = itemView.findViewById(R.id.editbtn)
     var deletebtn : ImageButton = itemView.findViewById(R.id.deletebtn)
 
